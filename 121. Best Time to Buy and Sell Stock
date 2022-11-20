@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& arr) {
+        int answer=0, half=INT_MAX;
+        for(int i=0; i<arr.size(); i++)
+        {
+            half = min(half, arr[i]);
+            answer = max(answer, arr[i]-half);
+        }
+        return answer;
+    }
+};
