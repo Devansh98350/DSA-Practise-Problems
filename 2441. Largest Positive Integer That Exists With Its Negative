@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int findMaxK(vector<int>& w) {
+    if(w.size()<2)  return -1;
+
+    sort(w.begin(), w.end());
+    int b = w.size();
+    if(w[0]>0 || w[b-1]<0)  return -1;
+
+    vector<int> ans;
+    for(int i=0; w[i]<0; i++){
+        for(int j = b-1; w[j]>0; j--){
+            if(w[i]+w[j]==0) ans.push_back(w[j]);
+        }
+    } 
+    sort(ans.begin(), ans.end(), greater<int>());
+    if(!ans.empty())     return ans[0];
+
+    return -1;
+    }
+};
