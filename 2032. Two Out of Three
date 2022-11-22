@@ -1,0 +1,37 @@
+class Solution {
+public:
+    vector<int> twoOutOfThree(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3) {
+        int a[101]={0};
+        vector<int> ans;
+
+        sort(nums1.begin(),nums1.end());
+        sort(nums2.begin(),nums2.end());
+        sort(nums3.begin(),nums3.end());
+        a[nums1[0]]++;
+        a[nums2[0]]++;
+        a[nums3[0]]++;
+
+        for(int i=1; i<nums1.size(); i++){
+            if(nums1[i]!=nums1[i-1]){
+            int t= nums1[i];
+            a[t]++;
+            }
+        }
+        for(int i=1; i<nums2.size(); i++){
+            if(nums2[i]!=nums2[i-1]){
+            int t= nums2[i];
+            a[t]++;
+            }
+        }
+        for(int i=1; i<nums3.size(); i++){
+            if(nums3[i]!=nums3[i-1]){
+            int t= nums3[i];
+            a[t]++;
+            }
+        }
+        for(int i=1; i<=100; i++){
+            if(a[i]>=2) ans.push_back(i);
+        }
+        return ans;
+    }
+};
