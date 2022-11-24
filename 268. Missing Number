@@ -1,0 +1,9 @@
+class Solution {
+public:
+    int missingNumber(vector<int>& w) {
+        int n = w.size();
+        int final = n*(n+1)/2;   
+        int sum = accumulate(w.begin(), w.end(), 0);
+        return (final-sum);
+    }
+};
