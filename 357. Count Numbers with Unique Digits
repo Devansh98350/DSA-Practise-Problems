@@ -1,0 +1,20 @@
+class Solution 
+{
+public:
+    int countNumbersWithUniqueDigits(int n) 
+    {
+        if(n==0) return 1;
+        vector<int> a(n+1);
+        a[0]=1;
+        a[1]=10;
+        int p=9;
+        int i=9;
+        for(int x=2; x<=n; x++)
+        {
+            p*=i;
+            a[x]=a[x-1]+p;
+            i--;
+        }
+        return a[n];
+    }
+};
